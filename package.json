@@ -1,0 +1,32 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "REST web service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oleg7814/node_cruid.git"
+  },
+  "keywords": [
+    "NODE",
+    "MONGO",
+    "EXPRESS",
+    "REST"
+  ],
+  "author": "Oleg L",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oleg7814/node_cruid/issues"
+  },
+  "homepage": "https://github.com/oleg7814/node_cruid#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "helmet": "^1.1.0",
+    "mongodb": "^2.1.4",
+    "mongoose": "^4.3.7"
+  }
+}
