@@ -10,23 +10,24 @@ var CustomerSchema = new Schema({
         first: String,
         last: String,
     },
-    dateOfBirth:{
-        type:Date, default: Date.now
-    } , //DateType,
-    companyName:String,
+    dateOfBirth: {
+        type: Date, default: Date.now
+    }, //DateType,
+    companyName: String,
     phone: {
         mobile: {
             type: String,
             trim: true,
-            match: /[0-9]{3}[-]{0,1}[0-9]{3}[-]{0,1}[0-9]{2}[-]{0,1}[0-9]{2}/g}
+            match: /[0-9]{3}[-]{0,1}[0-9]{3}[-]{0,1}[0-9]{2}[-]{0,1}[0-9]{2}/g
+        }
 
-    } ,// xxx-xxx-xx-xx,
-    work:{
+    },// xxx-xxx-xx-xx,
+    work: {
         type: String,
         trim: true,
         match: /[0-9]{3}[-]{0,1}[0-9]{3}[-]{0,1}[0-9]{2}[-]{0,1}[0-9]{2}/g
     },
-    skype:String
+    skype: String
 });
 
-module.exports = mongoose.model('Customer',CustomerSchema);
+module.exports = mongoose.model('Customer', CustomerSchema);

@@ -9,9 +9,9 @@ var PersonSchema = new Schema({
         first: String,
         last: String,
     },
-    dateOfBirth:{
-        type:Date
+    dateOfBirth: {
+        type: Date
     }
 });
 
-module.exports = mongoose.model('Person',PersonSchema);
+module.exports = mongoose.model('Person', PersonSchema);
