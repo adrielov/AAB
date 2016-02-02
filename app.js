@@ -15,26 +15,6 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;        // set our port
 mongoose.connect('mongodb://localhost:27017/customers');
 
-app.use(logErrors);
-app.use(clientErrorHandler);
-app.use(errorHandler);
-
-function logErrors(err, req, res, next) {
-    console.error(err.stack);
-    next(err);
-};
-function clientErrorHandler(err, req, res, next) {
-    if (req.xhr) {
-        res.status(500).send({error: 'Client side error'});
-    } else {
-        next(err);
-    }
-};
-function errorHandler(err, req, res, next) {
-    res.status(500);
-    res.render('error', {error: err});
-}
-
 // ROUTES FOR OUR API
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
@@ -67,19 +47,23 @@ router.route('/customers')
 
         // save the customer and check for errors
         customer.save(function (err) {
-            if (err)
-                res.send(err);
-
-            res.json({message: 'customer created!'});
+            if (err){
+                console.log('Creating error');
+                res.json({message: 'Cannot create this customer'});
+            }else{
+                res.json({message: 'customer created!'});
+            };
         });
     })
     // get all the customers (accessed at GET http://localhost:8080/api/customers)
     .get(function (req, res) {
         Customer.find(function (err, customers) {
-            if (err)
-                res.send(err);
-
-            res.json(customers);
+            if (err){
+                console.log('Searching error');
+                res.json({message: 'Cannot find customers'});
+            }else{
+                res.json(customers);
+            };
         });
     });
 
@@ -90,9 +74,12 @@ router.route('/customers/:customer_id')
     // get the customer with that id (accessed at GET http://localhost:3000/api/customers/:customer_id)
     .get(function (req, res) {
         Customer.findById(req.params.customer_id, function (err, customer) {
-            if (err)
-                res.send(err);
-            res.json(customer);
+            if (err){
+                console.log('Searching error');
+                res.json({message: 'Cannot find customer'});
+            }else{
+                res.json(customer);
+            };
         });
     })
     // update the customer with this id (accessed at PUT http://localhost:3000/api/customers/:customer_id)
@@ -101,8 +88,12 @@ router.route('/customers/:customer_id')
         // use our customer model to find the customer we want
         Customer.findById(req.params.customer_id, function (err, customer) {
 
-            if (err)
-                res.send(err);
+            if (err){
+                console.log('Searching error');
+                res.json({message: 'Cannot find customer'});
+            }else{
+                res.json(customer);
+            };
 
             // update the customers info
             customer.name.first = req.body.name.first;
@@ -115,10 +106,12 @@ router.route('/customers/:customer_id')
 
             // save the customer
             customer.save(function (err) {
-                if (err)
-                    res.send(err);
-
-                res.json({message: 'Customer updated!'});
+                if (err){
+                    console.log('Updating error');
+                    res.json({message: 'Cannot update customer'});
+                }else{
+                    res.json({message: 'Customer updated!'});
+                };
             });
         });
     })
@@ -128,10 +121,12 @@ router.route('/customers/:customer_id')
         Customer.remove({
             _id: req.params.customer_id
         }, function (err, customer) {
-            if (err)
-                res.send(err);
-
-            res.json({message: 'Successfully deleted'});
+            if (err){
+                console.log('Deleting error');
+                res.json({message: 'Cannot delete customer'});
+            }else{
+                res.json({message: 'Successfully deleted'});
+            };
         });
     });
 
@@ -148,19 +143,23 @@ router.route('/persons')
 
         // save the customer and check for errors
         person.save(function (err) {
-            if (err)
-                res.send(err);
-
-            res.json({message: 'person created!'});
+            if (err){
+                console.log('Creating error');
+                res.json({message: 'Cannot create this peerson'});
+            }else{
+                res.json({message: 'Person created!'});
+            };
         });
     })
     // get all the persons (accessed at GET http://localhost:3000/api/persons)
     .get(function (req, res) {
         Person.find(function (err, persons) {
-            if (err)
-                res.send(err);
-
-            res.json(persons);
+            if (err){
+                console.log('Searching error');
+                res.json({message: 'Cannot find this peersons'});
+            }else{
+                res.json(persons);
+            };
         });
     });
 
@@ -170,9 +169,12 @@ router.route('/persons/:person_id')
     // get the person with that id (accessed at GET http://localhost:3000/api/persons/:person_id)
     .get(function (req, res) {
         Person.findById(req.params.person_id, function (err, person) {
-            if (err)
-                res.send(err);
-            res.json(person);
+            if (err){
+                console.log('Searching error');
+                res.json({message: 'Cannot find this peerson'});
+            }else{
+                res.json(person);
+            };
         });
     })
     // update the person with this id (accessed at PUT http://localhost:3000/api/persons/:person_id)
@@ -181,8 +183,11 @@ router.route('/persons/:person_id')
         // use our person model to find the person we want
         Person.findById(req.params.person_id, function (err, person) {
 
-            if (err)
-                res.send(err);
+            if (err){
+                console.log('Searching error');
+                //  res.send(err);
+                res.json({message: 'Cannot find this peerson'});
+            }
 
             person.name.first = req.body.name.first;  // set the person name (comes from the request)
             person.name.last = req.body.name.last;
@@ -190,10 +195,13 @@ router.route('/persons/:person_id')
 
             // save the person
             person.save(function (err) {
-                if (err)
-                    res.send(err);
-
-                res.json({message: 'Person updated!'});
+                if (err){
+                    console.log('Updating error');
+                    //  res.send(err);
+                    res.json({message: 'Cant update this peerson'});
+                }else {
+                    res.json({message: 'Person successfully updated'});
+                }
             });
         });
     })
@@ -203,15 +211,18 @@ router.route('/persons/:person_id')
         Person.remove({
             _id: req.params.person_id
         }, function (err, person) {
-            if (err)
-                res.send(err);
-            res.json({message: 'Person successfully deleted'});
+            if (err){
+                console.log('deleting error');
+                //  res.send(err);
+                res.json({message: 'Cant delete this peerson'});
+            }else {
+                res.json({message: 'Person successfully deleted'});
+            }
         });
     });
 
 // all of our routes will be prefixed with /api
 app.use('/api', router);
-
 app.listen(port, function () {
     console.log('Server started and listening on ' + port + ' port ...');
 });
