@@ -56,7 +56,14 @@ router.route('/customers')
     .post(function (req, res) {
 
         var customer = new Customer();      // create a new instance of the Customer model
+        customer.name.first = req.body.name.first;  // set the customers name (comes from the request)
+        customer.name.last = req.body.name.last;
+        customer.dateOfBirth = req.body.dateOfBirth;
         customer.companyName = req.body.companyName;  // set the customers name (comes from the request)
+        customer.phone.mobile = req.body.phone.mobile;
+        customer.phone.work = req.body.phone.work;
+        customer.skype = req.body.skype;
+
 
         // save the customer and check for errors
         customer.save(function (err) {
@@ -97,7 +104,14 @@ router.route('/customers/:customer_id')
             if (err)
                 res.send(err);
 
-            customer.companyName = req.body.companyName;  // update the customers info
+            // update the customers info
+            customer.name.first = req.body.name.first;
+            customer.name.last = req.body.name.last;
+            customer.dateOfBirth = req.body.dateOfBirth;
+            customer.companyName = req.body.companyName;
+            customer.phone.mobile = req.body.phone.mobile;
+            customer.phone.work = req.body.phone.work;
+            customer.skype = req.body.skype;
 
             // save the customer
             customer.save(function (err) {
@@ -124,11 +138,12 @@ router.route('/customers/:customer_id')
 
 // Persons API
 router.route('/persons')
-    // create a person (accessed at POST http://localhost:8080/api/persons)
+    // create a person (accessed at POST http://localhost:3000/api/persons)
     .post(function (req, res) {
 
         var person = new Person();      // create a new instance of the Customer model
-        person.name = req.body.name;  // set the customers name (comes from the request)
+        person.name.first = req.body.name.first;  // set the customers name (comes from the request)
+        person.name.last = req.body.name.last;
         person.dateOfBirth = req.body.dateOfBirth;
 
         // save the customer and check for errors
@@ -139,7 +154,7 @@ router.route('/persons')
             res.json({message: 'person created!'});
         });
     })
-    // get all the persons (accessed at GET http://localhost:8080/api/persons)
+    // get all the persons (accessed at GET http://localhost:3000/api/persons)
     .get(function (req, res) {
         Person.find(function (err, persons) {
             if (err)
@@ -148,7 +163,7 @@ router.route('/persons')
             res.json(persons);
         });
     });
-// on routes that end in /customers/:customer_id
+
 // ----------------------------------------------------
 router.route('/persons/:person_id')
 
@@ -160,16 +175,17 @@ router.route('/persons/:person_id')
             res.json(person);
         });
     })
-    // update the customer with this id (accessed at PUT http://localhost:3000/api/customers/:customer_id)
+    // update the person with this id (accessed at PUT http://localhost:3000/api/persons/:person_id)
     .put(function (req, res) {
 
-        // use our customer model to find the customer we want
+        // use our person model to find the person we want
         Person.findById(req.params.person_id, function (err, person) {
 
             if (err)
                 res.send(err);
 
-            person.name = req.body.name;  // set the customers name (comes from the request)
+            person.name.first = req.body.name.first;  // set the person name (comes from the request)
+            person.name.last = req.body.name.last;
             person.dateOfBirth = req.body.dateOfBirth;
 
             // save the person
@@ -182,7 +198,7 @@ router.route('/persons/:person_id')
         });
     })
 
-    // delete the customer with this id (accessed at DELETE http://localhost:3000/api/customers/:customer_id)
+    // delete the person with this id (accessed at DELETE http://localhost:3000/api/persons/:persons_id)
     .delete(function (req, res) {
         Person.remove({
             _id: req.params.person_id
