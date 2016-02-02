@@ -19,14 +19,13 @@ var CustomerSchema = new Schema({
             type: String,
             trim: true,
             match: /[0-9]{3}[-]{0,1}[0-9]{3}[-]{0,1}[0-9]{2}[-]{0,1}[0-9]{2}/g
+        },
+        work: {
+            type: String,
+            trim: true,
+            match: /[0-9]{3}[-]{0,1}[0-9]{3}[-]{0,1}[0-9]{2}[-]{0,1}[0-9]{2}/g
         }
-
     },// xxx-xxx-xx-xx,
-    work: {
-        type: String,
-        trim: true,
-        match: /[0-9]{3}[-]{0,1}[0-9]{3}[-]{0,1}[0-9]{2}[-]{0,1}[0-9]{2}/g
-    },
     skype: String
 });
 
