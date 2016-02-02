@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oleg7814/node_cruid.git"
+    "url": "git+https://github.com/oleg7814/nodeJS_REST_API.git"
   },
   "keywords": [
     "NODE",
@@ -19,9 +19,9 @@
   "author": "Oleg L",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/oleg7814/node_cruid/issues"
+    "url": "https://github.com/oleg7814/nodeJS_REST_API/issues"
   },
-  "homepage": "https://github.com/oleg7814/node_cruid#readme",
+  "homepage": "https://github.com/oleg7814/nodeJS_REST_API#readme",
   "dependencies": {
     "body-parser": "^1.14.2",
     "express": "^4.13.4",
