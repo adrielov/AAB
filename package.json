@@ -1,32 +1,12 @@
 {
-  "name": "myapp",
+  "name": "node-crud-mongo",
   "version": "1.0.0",
-  "description": "REST web service",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/oleg7814/nodeJS_REST_API.git"
-  },
-  "keywords": [
-    "NODE",
-    "MONGO",
-    "EXPRESS",
-    "REST"
-  ],
-  "author": "Oleg L",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/oleg7814/nodeJS_REST_API/issues"
-  },
-  "homepage": "https://github.com/oleg7814/nodeJS_REST_API#readme",
   "dependencies": {
-    "body-parser": "^1.14.2",
-    "express": "^4.13.4",
-    "helmet": "^1.1.0",
-    "mongodb": "^2.1.4",
-    "mongoose": "^4.3.7"
+    "angular": "^1.4.9",
+    "body-parser": "^1.5.1",
+    "express": "^4.7.1",
+    "express-load": "^1.1.15",
+    "mongoose": "~3.6.11",
+    "socket.io": "^1.4.5"
   }
 }
