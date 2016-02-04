@@ -5,7 +5,23 @@ module.exports = function(app) {
     */
     var getDb = app.core.lib.database;
     var UserModel = getDb.model('User');
+
     var controller = {
+
+        login : function(req , res) {
+            var query = UserModel.findOne({ 'email': req.body.email ,'password': req.body.password });
+                query.select('email name');
+                query.exec(function(err, User) {
+                    if (!User) return res.send(500, {
+                        error: true,
+                        message: 'Dados inválidos, tente novamente!',
+                        debug : {
+                            __error : ((err)?err.message:null)
+                        }
+                    });
+                    res.status(200).jsonp(User);
+                });
+        },
 
         findAll: function(req, res) {
 
@@ -14,7 +30,7 @@ module.exports = function(app) {
                     error: true,
                     message: 'Algum erro foi encontrado, tente novamente!',
                     debug: {
-                        realError: err.message
+                        __error: err.message
                     }
                 });
                 res.status(200).jsonp(User);
@@ -24,17 +40,17 @@ module.exports = function(app) {
 
         addUser : function(req, res) {
 
-            var UserScore = new UserModel({
+            var newUser = new UserModel({
                 name: req.body.name,
-                score: req.body.score,
-                comment: req.body.comment,
+                email: req.body.email,
+                password: req.body.password,
             });
-            UserScore.save(function(err, User) {
+            newUser.save(function(err, User) {
                 if (err) return res.send(500, {
                     error: true,
                     message: 'Dados inválidos, tente novamente!',
                     debug: {
-                        realError: err.message
+                        __error: err.message
                     }
                 });
                 res.status(200).jsonp(User);
@@ -48,26 +64,29 @@ module.exports = function(app) {
                     error: true,
                     message: 'Id inválido, tente novamente!',
                     debug: {
-                        realError: err.message
+                        __error: err.message
                     }
                 });
                 res.status(200).jsonp(User);
             });
         },
 
-        updateUser : function(req, res) {
+        update : function(req, res) {
 
             UserModel.findById(req.params.id, function(err, User) {
-                User.name = req.body.name;
-                User.score = req.body.score;
-                User.comment = req.body.comment
+                if(req.body.name)
+                    User.name = req.body.name;
+                if(req.body.email)
+                    User.email = req.body.email;
+                if(req.body.password)
+                    User.password = req.body.password
 
                 User.save(function(err) {
                     if (err) return res.send(500, {
                         error: true,
                         message: 'Dados inválidos, tente novamente!',
                         debug: {
-                            realError: err.message
+                            __error: err.message
                         }
                     });
                     res.status(200).jsonp(User);
@@ -82,7 +101,7 @@ module.exports = function(app) {
                     error: true,
                     message: 'Algum erro foi encontrado, tente novamente!',
                     debug: {
-                        realError: err.message
+                        __error: err.message
                     }
                 });
                 res.status(200).jsonp(User);

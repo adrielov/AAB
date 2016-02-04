@@ -7,16 +7,21 @@ module.exports = function(app) {
 
 
 
-    app.route('/UserScores')
-        .get(UserController.findAll)
-        .post(UserController.addUser);
+    app.route('/users')
+        .get(UserController.findAll);
 
     app.route('/delete')
         .post(UserController.deleteAll);
 
-    app.route('/UserScores/:id')
+    app.route('/auth/login')
+        .post(UserController.login);
+
+    app.route('/auth/register')
+        .post(UserController.addUser);
+
+    app.route('/user/:id')
         .get(UserController.findById)
-        .put(UserController.updateUser);
+        .put(UserController.update);
 
 
 

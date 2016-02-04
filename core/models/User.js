@@ -1,7 +1,6 @@
 exports = module.exports = function(app, mongoose) {
 
     var mongoose = app.core.lib.database;
-
     var User = new mongoose.Schema({
         name: {
             type: String,
@@ -10,14 +9,16 @@ exports = module.exports = function(app, mongoose) {
                 unique: true
             }
         },
-        score: {
-            type: Number,
+        email: {
+            type: String,
+            required: true,
             index: {
                 unique: true
             }
         },
-        comment: {
-            type: String
+        password: {
+            type: String,
+            required: true
         },
     },{
         versionKey: false

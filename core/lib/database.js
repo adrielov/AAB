@@ -11,7 +11,7 @@ module.exports = function(app) {
 	}));
 
 
-    getDb.connect('mongodb://127.0.0.1/template', function(err, res) {
+    getDb.connect('mongodb://127.0.0.1/aab', function(err, res) {
         if (err) throw err;
         console.log('Connected to Database');
     });
