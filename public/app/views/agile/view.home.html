@@ -1,0 +1,133 @@
+﻿<div class="divider"></div>
+<div class="alert alert-info alert-styled-left alert-arrow-left alert-component">
+    <h6 class="alert-heading text-semibold">Lista de tarefas</h6>
+    Acompanhe as tarefas relaciadas a esse projeto
+</div>
+
+<div class="row row-sortable">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h6 class="panel-title">Backlog</h6>
+                <div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="reload" data-popup="tooltip" title="Recarregar"></a></li>
+                        <li><a data-action="collapse"></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="table-responsive">
+                <div class="agile-list-tasks table-responsive" data-task="to-do" id="to-do">
+                    <!--LIST TASKS IN TODO-->
+                    <div class="agile-tasks" ng-repeat="task in todo">
+                        <div id="task" data-code="{{task.code}}">
+                            <a href="#" class="btn bg-{{task.color}}-400 btn-rounded btn-icon btn-xs">
+                                <span class="letter-icon">{{task.letter}}</span>
+                            </a>           
+                            <a href="#" class="text-default display-inline-block" id="task-body" data-code="#1187">
+                                <span class="text-semibold">[#{{task.code}}] {{task.title}}</span>
+                                <span ng-if="task.priority" class="label label-{{task.priority.type}} pull-right">{{task.priority.label}}</span>
+                                <span class="display-block text-muted">{{task.description}}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!--/LIST TASKS IN TODO-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h6 class="panel-title">Em Progresso</h6>
+                <div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="reload" data-popup="tooltip" title="Recarregar"></a></li>
+                        <li><a data-action="collapse"></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="agile-list-tasks table-responsive" data-task="in-progress" id="in-progress" >
+                <!--LIST TASKS IN PROGRESS-->
+                    <div class="agile-tasks" ng-repeat="task in inprogress">
+                        <div id="task" data-code="{{task.code}}">
+                            <a href="#" class="btn bg-{{task.color}}-400 btn-rounded btn-icon btn-xs">
+                                <span class="letter-icon">{{task.letter}}</span>
+                            </a>           
+                            <a href="#" class="text-default display-inline-block" id="task-body" data-code="#1187">
+                                <span class="text-semibold">[#{{task.code}}] {{task.title}}</span>
+                                <span ng-if="task.priority" class="label label-{{task.priority.type}} pull-right">{{task.priority.label}}</span>
+                                <span class="display-block text-muted">{{task.description}}</span>
+                            </a>
+                        </div>
+                    </div>
+                <!--/LIST TASKS IN PROGRESS-->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h6 class="panel-title">Revisão</h6>
+                <div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="reload" data-popup="tooltip" title="Recarregar"></a></li>
+                        <li><a data-action="collapse"></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="agile-list-tasks table-responsive" data-task="done" id="done">
+                    <div class="agile-tasks" ng-repeat="task in done">
+                        <div id="task" data-code="{{task.code}}">
+                            <a href="#" class="btn bg-{{task.color}}-400 btn-rounded btn-icon btn-xs">
+                                <span class="letter-icon">{{task.letter}}</span>
+                            </a>           
+                            <a href="#" class="text-default display-inline-block" id="task-body" data-code="#1187">
+                                <span class="text-semibold">[#{{task.code}}] {{task.title}}</span>
+                                <span ng-if="task.priority" class="label label-{{task.priority.type}} pull-right">{{task.priority.label}}</span>
+                                <span class="display-block text-muted">{{task.description}}</span>
+                            </a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h6 class="panel-title">Completed</h6>
+                <div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="reload" data-popup="tooltip" title="Recarregar"></a></li>
+                        <li><a data-action="collapse"></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="agile-list-tasks table-responsive" data-task="done" id="done">
+                    <div class="agile-tasks" ng-repeat="task in done">
+                        <div id="task" data-code="{{task.code}}">
+                            <a href="#" class="btn bg-{{task.color}}-400 btn-rounded btn-icon btn-xs">
+                                <span class="letter-icon">{{task.letter}}</span>
+                            </a>           
+                            <a href="#" class="text-default display-inline-block" id="task-body" data-code="#1187">
+                                <span class="text-semibold">[#{{task.code}}] {{task.title}}</span>
+                                <span ng-if="task.priority" class="label label-{{task.priority.type}} pull-right">{{task.priority.label}}</span>
+                                <span class="display-block text-muted">{{task.description}}</span>
+                            </a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

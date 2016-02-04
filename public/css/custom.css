@@ -1,0 +1,40 @@
+.navbar-header {
+	text-align: center;
+}
+.navbar-brand {
+	text-align: center;
+	font-weight: bold;
+	margin: auto!important;
+	width: 100%;
+}
+.navbar-date {
+	font-size: 11pt;
+	text-align: left;
+}
+.agile-tasks {
+	margin-top:5px;
+	border-bottom: 1px solid #ccc;
+	text-align: left;
+	background: white;
+	padding: 2px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.agile-tasks a {
+	display: inline-block;
+}
+.agile-tasks a:first-child {
+	margin: 4px;
+	margin-top:-15px;
+}
+.agile-list-tasks {
+	min-height:50px;
+	text-align: center;
+}
+.menu_header {
+	display: inline-block;
+}
+
+.icon-list-inline li {
+	display: inline-block!important;
+}

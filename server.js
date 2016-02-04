@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use('/',express.static('public/html'));
+app.use('/app',express.static('public/app'));
+app.use('/assets',express.static('public'));
 
 /*
  *  AUTO LOAD MODELS , CONTROLLERS AND ROUTES INDO APPLICATION INSTANCE

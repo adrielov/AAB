@@ -1,0 +1,211 @@
+﻿    <!-- Main navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="agile.home">AAB</a>
+
+            <ul class="nav navbar-nav pull-right visible-xs-block" style="margin-left:0px!important">
+                <li><a data-toggle="collapse" style="margin:0px!important" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav"  style="margin:0px!important">
+                <li>
+                    <a class="sidebar-control sidebar-main-toggle hidden-xs">
+                        <i class="icon-paragraph-justify3"></i>
+                    </a>
+                </li>
+
+                <li class="dropdown">
+                    <a ui-sref="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-git-compare"></i>
+                        <span class="visible-xs-inline-block position-right">Git updates</span>
+                        <span class="badge bg-warning-400">1</span>
+                    </a>
+                    
+                    <div class="dropdown-menu dropdown-content">
+                        <div class="dropdown-content-heading">
+                            Git updates
+                            <ul class="icons-list">
+                                <li><a ui-sref="#"><i class="icon-sync"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <ul class="media-list dropdown-content-body width-350">
+                            <li class="media">
+                                <div class="media-left">
+                                    <a ui-sref="#" class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-pull-request"></i></a>
+                                </div>
+                                
+                                <div class="media-body">
+                                    Have Carousel ignore keyboard events
+                                    <div class="media-annotation">Dec 12, 05:46</div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="dropdown-content-footer">
+                            <a ui-sref="#" data-popup="tooltip" title="All activity"><i class="icon-menu display-block"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">            
+                <li class="dropdown dropdown-user">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="assets/images/placeholder.jpg" alt="">
+                        <span>Adriel Oliveira</span>
+                        <i class="caret"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a ui-sref="#"><i class="icon-user-plus"></i> Meu Perfil</a></li>
+                        <li><a ui-sref="#"><i class="icon-coins"></i> My balance</a></li>
+                        <li><a ui-sref="#"><span class="badge badge-warning pull-right">58</span> <i class="icon-comment-discussion"></i> Mensagens</a></li>
+                        <li class="divider"></li>
+                        <li><a ui-sref="#"><i class="icon-cog5"></i> Configurações da conta</a></li>
+                        <li><a ui-sref="auth.login"><i class="icon-switch2"></i> Sair</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /main navbar -->
+
+
+    <!-- Page container -->
+    <div class="page-container">
+
+        <!-- Page content -->
+        <div class="page-content">
+
+            <!-- Main sidebar -->
+            <div class="sidebar sidebar-main">
+                <div class="sidebar-content">
+
+                    <!-- User menu -->
+                    <div class="sidebar-user">
+                        <div class="category-content">
+                            <div class="media">
+                                <a ui-sref="#" class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
+                                <div class="media-body">
+                                    <span class="media-heading text-semibold">Adriel Oliveira</span>
+                                    <div class="text-size-mini text-muted">
+                                        <i class="icon-pin text-size-small"></i> Desenvolvedor
+                                    </div>
+                                </div>
+
+                                <div class="media-right media-middle">
+                                    <ul class="icons-list">
+                                    <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="icon-cog3"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="#"><i class="icon-user-lock"></i> Configurações da conta</a></li>
+                                    <li><a href="#"><i class="icon-statistics"></i> Ultimos registros</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="icon-gear"></i> Todas as aconfigurações</a></li>
+                                </ul>
+                            </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /user menu -->
+
+
+                    <!-- Main navigation -->
+                    <div class="sidebar-category sidebar-category-visible">
+                        <div class="category-content no-padding">
+                            <ul class="navigation navigation-main navigation-accordion">
+
+                                <!-- Main -->
+                                <li class="navigation-header" ><span>Menu principal</span> <i class="icon-menu" title="Main pages"></i></li>
+                                <li ui-sref-active="active"><a ui-sref="agile.home"><i class="icon-home4"></i> <span>Principal</span></a></li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="agile.task"><i class="icon-stack2"></i> <span>Tarefas</span></a>
+                                    <ul>
+                                        <li><a ui-sref="agile.tasklist">Lista completa</a></li>
+                                    </ul>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="agile.projects"><i class="icon-stack2"></i> <span>Projetos</span></a>
+                                    <ul>
+                                        <li><a ui-sref="agile.projects">Projeto 1</a></li>
+                                        <li><a ui-sref="agile.projects">Projeto 2</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /main navigation -->
+                </div>
+            </div>
+            <!-- /main sidebar -->
+
+
+            <!-- Main content -->
+            <div class="content-wrapper">
+
+                <!-- Page header -->
+                <div class="page-header">
+                    <div class="page-header-content">
+                        <div class="page-title">
+                            <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">{{module.title}}</span> - {{module.subtitle}}</h4>
+                        </div>
+
+                        <div class="heading-elements">
+                            <div class="heading-btn-group">
+                                <div class="menu_header" ng-repeat="menu in module.menu_header">
+                                    <a ui-sref="{{menu.url}}" class="btn btn-link btn-float has-text">
+                                        <i class="{{menu.icon}} text-primary"></i>
+                                        <span>{{menu.label}}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="breadcrumb-line">
+                        <ul class="breadcrumb">
+                            <li><a ui-sref="agile.home"><i class="icon-home2 position-left"></i> Principal</a></li>
+                            <li class="active">{{module.subtitle}}</li>
+                        </ul>
+
+                        <ul class="breadcrumb-elements">
+                            <li><a ui-sref="agile.support"><i class="icon-comment-discussion position-left"></i> Suporte</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /page header -->
+
+
+                <!-- Content area -->
+                <div class="content">
+
+                    <!-- Content VIEW -->
+                     <div ui-view></div>
+                    <!-- /Contente VIEW -->
+
+                    <!-- Footer -->
+                    <div class="footer text-muted">
+                    &copy; 2015. <b>ATMUS AGILE BOARD</b> by <a href="http://atmus.com.br" target="_blank">Atmus SI</a>
+                </div>
+                    <!-- /footer -->
+
+                </div>
+                <!-- /content area -->
+
+            </div>
+            <!-- /main content -->
+
+        </div>
+        <!-- /page content -->
+
+    </div>
+    <!-- /page container -->

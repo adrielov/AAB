@@ -1,7 +1,8 @@
-exports = module.exports = function(app, mongoose) {
+module.exports = function(app, mongoose) {
 
-    var mongoose = app.core.lib.database;
-    var User = new mongoose.Schema({
+    var dbInstance  = app.core.lib.database;
+
+    var UserModel   = new dbInstance.Schema({
         name: {
             type: String,
             required: true,
@@ -24,7 +25,8 @@ exports = module.exports = function(app, mongoose) {
         versionKey: false
     });
 
-    mongoose.model('User', User);
+    setModel = dbInstance.__autoincrement(dbInstance ,'User', UserModel);
+
     
-    return mongoose;
+    return setModel;
 };
