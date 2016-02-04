@@ -4,7 +4,7 @@ module.exports = function(app) {
     const session       = require('express-session');
     const MongoStore    = require('connect-mongo')(session);
     const autoIncrement = require('mongoose-auto-increment');
-
+    
     app.use(session({
         secret: 'app.session',
         resave: false,

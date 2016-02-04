@@ -1,4 +1,4 @@
-module.exports = function(app, mongoose) {
+module.exports = function(app) {
 
     var dbInstance  = app.core.lib.database;
 

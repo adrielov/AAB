@@ -2,7 +2,7 @@ module.exports = function(app) {
 
     var dbInstance  = app.core.lib.database;
 
-    var UserModel   = new dbInstance.Schema({
+    var TesteModel   = new dbInstance.Schema({
         name: {
             type: String,
             required: true,
@@ -25,7 +25,7 @@ module.exports = function(app) {
         versionKey: false
     });
 
-    setModel = dbInstance.__autoincrement(dbInstance ,'User', UserModel);
+    setModel = dbInstance.__autoincrement(dbInstance ,'Teste', TesteModel);
 
     
     return setModel;
