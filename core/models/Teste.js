@@ -2,7 +2,7 @@ module.exports = function(app) {
 
     var dbInstance  = app.core.lib.database;
 
-    var TesteModel   = new dbInstance.Schema({
+    var TesteModel   = new dbInstance.Schema({ createdAt: { type: Date, default: Date.now } ,
         name: {
             type: String,
             required: true,

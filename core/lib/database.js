@@ -4,9 +4,9 @@ module.exports = function(app) {
     const session       = require('express-session');
     const MongoStore    = require('connect-mongo')(session);
     const autoIncrement = require('mongoose-auto-increment');
-    
+
     app.use(session({
-        secret: 'app.session',
+        secret: app.core.config.development.session.key,
         resave: false,
         saveUninitialized: true,
         store: new MongoStore({
@@ -33,8 +33,8 @@ module.exports = function(app) {
     }
 
     connection.__response = function(res) {
-        var numRows = res.length;
-        res.password = undefined;
+        console.log(res)
+        var numRows = (res == null) ? 0: res.length;
         return {
             error: false,
             data: {

@@ -37,7 +37,7 @@ module.exports = function(app) {
 
         },
 
-        addUser : function(req, res) {
+        new : function(req, res) {
 
             var newUser = new UserModel({
                 name: req.body.name,
@@ -58,7 +58,9 @@ module.exports = function(app) {
 
         findById : function(req, res) {
 
-            UserModel.findById(req.params.id, function(err, User) {
+            UserModel.findById(req.params.id)
+            .populate('projects', 'title')
+            .exec(function(err, User) {
                 if (err) return res.status(500).jsonp({
                     error: true,
                     message: 'Id inválido, tente novamente!',
@@ -66,6 +68,9 @@ module.exports = function(app) {
                         __error: err.message
                     }
                 });
+
+                console.log(User.subscribing)
+
                 return res.status(200).jsonp(getDb.__response(User));
             });
         },

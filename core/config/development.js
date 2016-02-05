@@ -3,6 +3,9 @@ module.exports = {
 	title: 'Atmus Agile Board',
 	port: 3000,
 	portSocket : 3001,
+	session: {
+		key : 'app.session'
+	},
 	databases : {
 		mongodb : {
 			 'url' : 'mongodb://127.0.0.1/aab'

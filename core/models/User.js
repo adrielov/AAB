@@ -1,15 +1,23 @@
 module.exports = function(app) {
 
-    var dbInstance  = app.core.lib.database;
+    var DB     = app.core.lib.database;
 
-    var UserModel   = new dbInstance.Schema({
+    var Model  = new DB.Schema({ createdAt: { type: Date, default: Date.now } ,
+
+        projects : [{
+            type: DB.Schema.Types.ObjectId,
+            ref: 'Project'
+        }],
+
         name: {
             type: String,
             required: true,
+            trim: true,
             index: {
                 unique: true
             }
         },
+
         email: {
             type: String,
             required: true,
@@ -17,15 +25,17 @@ module.exports = function(app) {
                 unique: true
             }
         },
+
         password: {
             type: String,
             required: true
         },
+
     },{
         versionKey: false
     });
 
-    setModel = dbInstance.__autoincrement(dbInstance ,'User', UserModel);
+    setModel = DB.__autoincrement(DB ,'User', Model);
 
     
     return setModel;

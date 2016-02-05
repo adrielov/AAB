@@ -22,7 +22,7 @@ app.use('/assets',express.static('public'));
  *	AUTO LOAD CONFIG SERVER
  */
 
-load('core/config').then('core/lib').then('core/models').into(app);
+load('core/config').then('core/helpers').then('core/lib').then('core/models').into(app);
 load('core/controllers').then('core/routes.js').into(app);
 
 for (var environment in app.core.config) {
