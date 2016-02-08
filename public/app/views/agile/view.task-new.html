@@ -1,0 +1,109 @@
+﻿<!-- Basic setup -->
+		            <div class="panel panel-white">
+						<div class="panel-heading">
+							<h6 class="panel-title">Criar nova tarefa</h6>
+						</div>
+
+	                	<form class="form-basic" id="form-task-new">
+							<fieldset class="step" id="step1">
+								<h6 class="form-wizard-title text-semibold">
+									<span class="form-wizard-count">1</span>
+									Informações
+									<small class="display-block">Informe todos os dados sobre a nova tarefa</small>
+								</h6>
+
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Titulo da tarefa:</label>
+											<input type="text" name="name" ng-model="title" class="form-control" placeholder="Titulo">
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Responsáveis:</label>
+											<select  multiple="multiple" ng-model="assigneds" name="position" data-placeholder="Selecionar responsavel" class="assigneds">
+												<option></option>
+												<optgroup label="Desenvolvedores">
+													<option value="1">Usuário 1</option>
+													<option value="2">Usuário 2</option>
+													<option value="3">Usuário 3</option>
+													<option value="4">Usuário 4</option>
+												</optgroup>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<div class="col-md-6">
+												<label>Entrega:</label>
+												<div class="input-group">
+													<span class="input-group-addon"><i class="icon-calendar52"></i></span>
+													<input type="text"  ng-model="duedate" class="form-control pickadate" placeholder="Prazo para finalização da tarefa">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<label>Status incial da tarefa:</label>
+												<select name="position"  ng-model="status" data-placeholder="Selecionar responsavel" class="selectStatus">
+													<option></option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Prioridade:</label>
+												<select ng-model="priority" name="priority" data-placeholder="Prioridade dessa tarefa" class="select">
+													<option></option>
+													<optgroup label="Prioridade">
+														<option value="1">Máxima</option>
+														<option value="2">Alta</option>
+														<option value="3" selected>Normal</option>
+														<option value="4">Baixa</option>
+													</optgroup>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Dependência:</label>
+												<select ng-model="dependencies" name="dependencies" data-placeholder="Dependência de tarefa" class="dependencies">
+													<option></option>
+												</select>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="row">
+
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Descrição da tarefa:</label>
+		                                    <textarea name="experience-description"  ng-model="description" style="resize: none;" rows="8" cols="8" placeholder="..." class="form-control"></textarea>
+		                                </div>
+									</div>
+</div>
+
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">											
+											<div class="text-right">
+												<button type="submit" class="btn btn-primary">Adicionar <i class="icon-arrow-right14 position-right"></i></button>
+											</div>
+		                                </div>
+									</div>
+								</div>
+
+							</fieldset>
+
+							
+						</form>
+		            </div>
+		            <!-- /basic setup -->
